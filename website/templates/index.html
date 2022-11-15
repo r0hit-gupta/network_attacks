@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+    <h3 class="mb-4">Transaction History</h3>
+    <div class="card">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Comments</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody id="results" class="table-group-divider">
+                {% autoescape false %}
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.account }}</td>
+                    <td>{{ transaction.comments }}</td>
+                    <td>${{ transaction.amount }}.00</td>
+                </tr>
+                {% endfor %}
+                {% endautoescape %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<div>
+	<h3 class="mb-3">Transfer Funds</h3>
+	<form class="row" method="post">
+		{% if msg %}
+		<strong class="alert alert-success" role="alert">{{msg}}</strong>
+		{% endif %}
+		<div class="col-6 mb-3">
+			<label for="account" class="form-label">Account Number</label>
+			<input required type="number" name="account" class="form-control" id="account">
+		</div>
+		<div class="col-6 mb-3">
+			<label for="amount" class="form-label">Amount</label>
+			<div class="col-5 input-group">
+				<span class="input-group-text">$</span>
+				<input required type="number" class="form-control" id="amount" name="amount">
+			</div>
+		</div>
+		<div class="col-12 mb-3">
+			<label for="comments" class="form-label">Comments</label>
+			<textarea class="col-12 form-control" id="comments" name="comments"></textarea>
+		</div>
+		<div class="col-2">
+			<button type="submit" class="btn btn-primary mb-3">Transfer</button>
+		</div>
+	</form>
+</div>
+{% endblock %}
